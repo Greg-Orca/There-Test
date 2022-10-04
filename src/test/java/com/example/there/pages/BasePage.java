@@ -1,4 +1,35 @@
 package com.example.there.pages;
 
-public class BasePage {
+import com.example.there.utils.Driver;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+public abstract class BasePage {
+    public WebDriver driver;
+    public WebDriverWait wait;
+    private final Duration WAIT_DURATION = Duration.ofSeconds(10);
+    private static String BASE_URL = "";
+
+    public BasePage(){
+        driver = Driver.getDriver();
+        PageFactory.initElements(driver,this);
+        wait = new WebDriverWait(driver, WAIT_DURATION);
+    }
+
+    public void waitUntilElementLoaded(WebElement webElement) {
+        wait.until(ExpectedConditions.visibilityOf(webElement));
+    }
+
+    public void waitUntilElementClickable(WebElement webElement){
+        wait.until(ExpectedConditions.elementToBeClickable(webElement));
+    }
+
+    public void openUrl(String path){
+        driver.get(BASE_URL+path);
+    }
 }
