@@ -18,5 +18,6 @@ public class Driver {
     public static void quitDriver(){
         driver.quit();
         driver = null;
-    };
+        System.out.println("App closed");
+    }
 }
