@@ -13,12 +13,13 @@ public abstract class BasePage {
     public WebDriver driver;
     public WebDriverWait wait;
     private final Duration WAIT_DURATION = Duration.ofSeconds(10);
-    private static String BASE_URL = "";
+    private static String BASE_URL = "https://there.hu/";
 
     public BasePage(){
         driver = Driver.getDriver();
         PageFactory.initElements(driver,this);
         wait = new WebDriverWait(driver, WAIT_DURATION);
+        driver.manage().timeouts().implicitlyWait(WAIT_DURATION);
     }
 
     public void waitUntilElementLoaded(WebElement webElement) {
