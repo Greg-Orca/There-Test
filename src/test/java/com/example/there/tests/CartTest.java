@@ -55,6 +55,17 @@ public class CartTest {
 
     @Test
     public void checkoutWithEmptyCartUnsuccessful(){
+        eventPage.openUrl("checkout");
+        String fullName = "Se Lenium";
+        String email = "test@test.com";
+        String phone = "+362212121212";
+        String street = "Long street 22";
+        String zip = "4433";
+        String city = "London";
+        String country = "UK";
+        cartPage.fillPersonalData(fullName,email,phone,street,zip,city,country);
+        cartPage.goPay();
+
 
     }
 
