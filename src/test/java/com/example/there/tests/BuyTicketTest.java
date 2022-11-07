@@ -1,9 +1,7 @@
 package com.example.there.tests;
 
-import com.example.there.pages.BasePage;
 import com.example.there.pages.CartPage;
 import com.example.there.pages.EventPage;
-import com.example.there.utils.Driver;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,7 +23,7 @@ public class BuyTicketTest {
 
     @Test
     public void buyTicketSuccessful(){
-        eventPage.openUrl("DE-MARKT");
+        eventPage.openUrl("");
         eventPage.addTicketToCart();
         eventPage.buyTicket();
         String fullName = "Se Lenium";

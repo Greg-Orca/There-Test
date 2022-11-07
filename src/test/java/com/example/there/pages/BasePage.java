@@ -13,7 +13,7 @@ public abstract class BasePage {
     public WebDriver driver;
     public WebDriverWait wait;
     private final Duration WAIT_DURATION = Duration.ofSeconds(10);
-    private static String BASE_URL = "https://there.hu/";
+    private static String BASE_URL = "https://there-dev.web.app";
 
     public BasePage(){
         driver = Driver.getDriver();
