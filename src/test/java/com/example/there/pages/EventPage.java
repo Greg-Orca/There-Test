@@ -17,6 +17,9 @@ public class EventPage extends BasePage {
     @FindBy(xpath = "//*[@id=\"__next\"]/div[1]/div[2]/div[2]/div[3]/div[2]/button")
     WebElement buttonBuy;
 
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[1]/div[3]/div[2]/div[1]/h1")
+    WebElement eventTitle;
+
     public void addTicketToCart(){
             buttonAddTicket.click();
     }
@@ -33,5 +36,10 @@ public class EventPage extends BasePage {
     public void buyTicket(){
         waitUntilElementClickable(buttonBuy);
         buttonBuy.click();
+    }
+
+    public String getEventTitle(){
+        waitUntilElementLoaded(eventTitle);
+        return eventTitle.getText();
     }
 }
